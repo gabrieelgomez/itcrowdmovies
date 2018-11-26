@@ -20,6 +20,7 @@ Bundler.require(*Rails.groups)
 module CinemaLibrary
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.eager_load_paths << Rails.root.join('app')
     config.load_defaults 5.2
     config.middleware.use Rack::Cors do
       allow do
