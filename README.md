@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Cinema Library is an API to serve detailed information about Movies, people who participated and their role in each one.
 
-Things you may want to cover:
+#### List of most important libraries(gems) used:
 
-* Ruby version
+* Postgresql as database, gem 'pg'
 
-* System dependencies
+* Devise Token Auth for authentication, gem 'devise_token_auth'
 
-* Configuration
+* Active Model Serializers for Json formats, gem 'active_model_serializers'
 
-* Database creation
+* Rack-CORS for cross origin, gem 'rack-cors'
 
-* Database initialization
+* Faker to generate random data, gem 'faker'
 
-* How to run the test suite
+* Factory Bot to create lists of models faster, gem 'factory_bot_rails'
 
-* Services (job queues, cache servers, search engines, etc.)
+### Tips
 
-* Deployment instructions
+there are some random data in seeds.rb, just have to run `rails db:seed`.
 
-* ...
+e.g:
+`rails db:drop db:create db:seed`
