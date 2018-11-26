@@ -14,3 +14,9 @@ end
 (1..15).each do |index|
   FactoryBot.create(:role, person_id: index, movie_id: index)
 end
+
+User.create(
+  email: "admin@mail.com",
+  password: '12345678',
+  password_confirmation: '12345678'
+)

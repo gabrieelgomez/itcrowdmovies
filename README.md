@@ -21,4 +21,13 @@ Cinema Library is an API to serve detailed information about Movies, people who 
 there are some random data in seeds.rb, just have to run `rails db:seed`.
 
 e.g:
-`rails db:drop db:create db:seed`
+
+- `rails db:drop db:create db:seed`
+
+- `rails s`
+
+When running `db:seed` an admin user is registrated, use this user to log-in if you want.
+
+To authenticate you need to make a request for sign-in to `localhost:3000/auth/sign_in`,
+look for the credentials in headers from response to be able to make POST and PUT/PATCH requests,
+fields to extract from header are `access-token`, `client`, `uid`.
