@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_11_25_210006) do
     t.bigint "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "type"
+    t.integer "role_type"
     t.index ["movie_id"], name: "index_roles_on_movie_id"
     t.index ["person_id"], name: "index_roles_on_person_id"
   end
