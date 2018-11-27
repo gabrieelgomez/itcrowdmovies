@@ -6,13 +6,13 @@ class Api::MoviesController < ApplicationController
 
   def create
     movie = Movie.new(movie_params)
-    return render json: movie if movie.save
+    return render json: movie, status: :created if movie.save
     render json: movie.errors
   end
 
   def update
     movie = Movie.find(params[:id])
-    return render json: movie if movie.update(movie_params)
+    return render json: movie, status: :ok if movie.update(movie_params)
     render json: movie.errors
   end
 
