@@ -16,7 +16,11 @@ Cinema Library is an API to serve detailed information about Movies, people who 
 
 * Factory Bot to create lists of models faster, gem 'factory_bot_rails'
 
-### Tips
+* Database Cleaner to clean test database for each test executed, gem 'database_cleaner'
+
+* Dictum to document endpoint based on test, gem 'dictum'
+
+### IMPORTANT
 
 there are some random data in seeds.rb, just have to run `rails db:seed`.
 
@@ -28,6 +32,22 @@ e.g:
 
 When running `db:seed` an admin user is registrated, use this user to log-in if you want.
 
-To authenticate you need to make a request for sign-in to `localhost:3000/auth/sign_in`,
-look for the credentials in headers from response to be able to make POST and PUT/PATCH requests,
-fields to extract from header are `access-token`, `client`, `uid`.
+ #### How to log-in
+ Using the route `localhost:3000/auth/sign_in` you need to send the following fields in the body:
+  - email: `admin@mail.com`
+  - password: `12345678`
+from response header you have to copy three fields `access-token`, `client` and `uid` in headers
+for every create or update request in order to make authenticated request.
+
+e.g:
+
+#### Response headers:
+```json
+{
+  "Content-Type": "application/json; charset=utf-8",
+  "access-token": "lUcAcRJi9VNZVM5PsL3aWA",
+  "client": "OnSypyI9CJnOhHCY-C1yOw",
+  "uid": "admin@mail.com"
+}
+```
+Documentation Endpoints [here](docs/Documentation.md)
