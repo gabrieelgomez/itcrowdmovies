@@ -94,3 +94,28 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+DEFAULT_REQUEST_HEADERS = {
+  'AUTHORIZATION' => 'user_token',
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+RSpec.configure do |config|
+  config.after(:each) do |test|
+    if test.metadata[:dictum]
+    Dictum.endpoint(
+      resource: test.metadata[:described_class].to_s.split('::').last.gsub('Controller', ''),
+      endpoint: request.fullpath,
+      http_verb: request.env['REQUEST_METHOD'],
+      description: test.metadata[:dictum],
+      request_headers: DEFAULT_REQUEST_HEADERS,
+      request_path_parameters: request.env['action_dispatch.request.path_parameters'].except(:controller, :action),
+      request_body_parameters: request.env['action_dispatch.request.parameters'].except('controller', 'action'),
+      response_headers: response.headers,
+      response_status: response.status,
+      response_body: response.body == "" ? response.body : ActiveSupport::JSON.decode(response.body)
+    )
+    end
+  end
+end

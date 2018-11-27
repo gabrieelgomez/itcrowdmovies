@@ -10,7 +10,7 @@ RSpec.describe Api::PeopleController, type: :controller do
         get :index
       end
       
-      it 'responds with status ok' do
+      it 'responds with status ok', dictum: 'Method Index - list people' do
         expect(response).to have_http_status(:ok)
       end
       
@@ -46,7 +46,7 @@ RSpec.describe Api::PeopleController, type: :controller do
         post :create, params: person_params
       end
 
-      it 'responds with status created' do
+      it 'responds with status created', dictum: 'Method Create - creates a person' do
         expect(response).to have_http_status(:created)
       end
 
@@ -83,7 +83,7 @@ RSpec.describe Api::PeopleController, type: :controller do
         put :update, params: {id: person.id, person: person_params}
       end
 
-      it 'responds with status ok' do
+      it 'responds with status ok', dictum: 'Method Update -updates a person' do
         expect(response).to have_http_status(:ok)
       end
     end

@@ -10,7 +10,7 @@ RSpec.describe Api::MoviesController, type: :controller do
         get :index
       end
 
-      it 'responds with status ok' do
+      it 'responds with status ok', dictum: "Method index - List all movies" do
         expect(response).to have_http_status(:ok)
       end
 
@@ -47,7 +47,7 @@ RSpec.describe Api::MoviesController, type: :controller do
         post :create, params: movie_params
       end
 
-      it 'responds with status created' do
+      it 'responds with status created', dictum: "Method Create - Creates a movie" do
         expect(response).to have_http_status(:created)
       end
 
@@ -83,7 +83,7 @@ RSpec.describe Api::MoviesController, type: :controller do
         put :update, params: {id: movie.id, movie: movie_params}
       end
 
-      it 'responds with status ok' do
+      it 'responds with status ok', dictum: "Method Update - updates a movie" do
         expect(response).to have_http_status(:ok)
       end
     end
