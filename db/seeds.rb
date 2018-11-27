@@ -7,12 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 15.times do
-  FactoryBot.create(:movie)
-  FactoryBot.create(:person)
+  Movie.create(
+    title: Faker::Movie.quote,
+    release: Faker::Date.between(2.days.ago, Date.today)
+  )
+  Person.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name
+  )
 end
 
 (1..15).each do |index|
-  FactoryBot.create(:role, person_id: index, movie_id: index)
+  Role.create(
+    person_id: index,
+    movie_id: index,
+    role_type: Role.role_types.keys.sample
+  )
 end
 
 User.create(
