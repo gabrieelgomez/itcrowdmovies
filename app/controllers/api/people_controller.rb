@@ -1,5 +1,5 @@
 class Api::PeopleController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update]
+  before_action :authenticate_user!, only: %i[create update]
   def index
     render json: Person.all
   end
@@ -7,12 +7,14 @@ class Api::PeopleController < ApplicationController
   def create
     person = Person.new(person_params)
     return render json: person, status: :created if person.save
+
     render json: person.errors
   end
 
   def update
     person = Person.find(params[:id])
     return render json: person, status: :ok if person.update(person_params)
+
     render json: person.errors
   end
 
@@ -22,7 +24,7 @@ class Api::PeopleController < ApplicationController
     params.require(:person).permit(
       :first_name,
       :last_name,
-      roles_attributes: [:id, :role_type, :movie_id]
+      roles_attributes: %i[id role_type movie_id]
     )
   end
 end

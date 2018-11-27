@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -19,11 +21,14 @@ gem 'puma', '~> 3.11'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
-#auth
+# auth
 gem 'devise_token_auth'
 
-#serialization
+# serialization
 gem 'active_model_serializers', '~> 0.10.0'
+
+# style guide
+gem 'rubocop'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -38,9 +43,9 @@ gem 'rack-cors'
 gem 'dictum'
 
 group :development, :test do
-  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   # Testing
   gem 'rspec-rails'
@@ -55,6 +60,5 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

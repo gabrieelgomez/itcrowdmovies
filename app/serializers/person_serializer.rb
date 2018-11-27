@@ -12,5 +12,4 @@ class PersonSerializer < ActiveModel::Serializer
   def as_producer
     object.movies_participated(Person::PRODUCER)
   end
-
 end
