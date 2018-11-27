@@ -24,18 +24,12 @@ Cinema Library is an API to serve detailed information about Movies, people who 
 
 ### IMPORTANT
 
-there is random data in seeds.rb, just have to run `rails db:seed`.
-
-e.g:
-
-- `rails db:drop db:create db:seed`
-
-- `rails s`
-
-When running `db:seed` an admin user is registrated, use this user to log-in if you want.
+to **register** an user to make request use this endpoint:
+- POST to `https://cinemalibrary.herokuapp.com/auth` with fields `email`, `password` and
+`password_confirmation` as minimum to register.
 
  #### How to log-in
- Using the route `localhost:3000/auth/sign_in` you need to send the following fields in the body:
+ Using the route `https://cinemalibrary.herokuapp.com/auth/sign_in` you need to send the following fields in the body in case that you want yo use the default register user:
   - email: `admin@mail.com`
   - password: `12345678`
 
