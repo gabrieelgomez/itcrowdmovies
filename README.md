@@ -20,9 +20,11 @@ Cinema Library is an API to serve detailed information about Movies, people who 
 
 * Dictum to document endpoint based on test, gem 'dictum'
 
+* Rubocop to keep good guide style, gem 'rubocop'
+
 ### IMPORTANT
 
-there are some random data in seeds.rb, just have to run `rails db:seed`.
+there is random data in seeds.rb, just have to run `rails db:seed`.
 
 e.g:
 
@@ -36,6 +38,7 @@ When running `db:seed` an admin user is registrated, use this user to log-in if 
  Using the route `localhost:3000/auth/sign_in` you need to send the following fields in the body:
   - email: `admin@mail.com`
   - password: `12345678`
+
 from response header you have to copy three fields `access-token`, `client` and `uid` in headers
 for every create or update request in order to make authenticated request.
 
